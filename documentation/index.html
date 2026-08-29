@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alfa Payment Gateway | WooCommerce Documentation</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <h2>Alfa Payment Docs</h2>
+    <button class="menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">☰</button>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <nav>
+    <div class="nav-brand">
+      <h1>Alfa Payment Gateway</h1>
+      <span class="version-badge">Fixed & Hardened</span>
+    </div>
+    <ul>
+      <li><a href="#about" class="current">About Plugin</a></li>
+      <li><a href="#features">Key Features</a></li>
+      <li><a href="#security">Security & Hardening</a></li>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#configuration">Configurations</a></li>
+      <li><a href="#checkout">Checkout Experience</a></li>
+      <li><a href="#data-flow">Architecture & Data Flow</a></li>
+      <li><a href="#developer">👤 Author & Developer</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+
+    <section id="about">
+      <h1>About Plugin</h1>
+      <div class="alert alert-success">
+        <strong>High-Performance Edition:</strong> This is a custom-hardened, heavily optimized, and secure edition of
+        the Alfa Payment Gateway plugin for WooCommerce.
+      </div>
+
+      <p>The <strong>Alfa Payment integration plugin for WordPress WooCommerce</strong> provides a seamless and highly
+        secure integration with the Bank Alfalah Alfa Online Payment System in Pakistan. It empowers eCommerce merchants
+        to instantly accept digital payments directly into their accounts via multiple channels.</p>
+
+      <p>This customized edition resolves critical legacy vulnerabilities, fixes modern hosting timeouts (including
+        Hostinger / OpenSSL 3 cURL EOF bugs), implements full High-Performance Order Storage (HPOS) compatibility, and
+        provides a multi-channel payment experience.</p>
+    </section>
+
+    <section id="features">
+      <h1>Key Features & Payment Channels</h1>
+      <p>Merchants can enable or disable any of the following payment channels directly from the WooCommerce gateway
+        settings:</p>
+
+      <ul class="feature-list">
+        <li><strong>💳 Credit / Debit Card (Visa/MasterCard):</strong> Accept global card payments.</li>
+        <li><strong>📱 Alfa Digital Wallet:</strong> Direct payment from registered Bank Alfalah Alfa Mobile Wallets.
+        </li>
+        <li><strong>🏦 Bank Alfalah Account:</strong> Direct debit from Bank Alfalah bank accounts.</li>
+        <li><strong>🕌 Alfa BNPL Islamic:</strong> Buy-Now-Pay-Later Shariah-compliant installment facility.</li>
+        <li><strong>📦 Card On Delivery:</strong> Post-dated card charge on physical delivery.</li>
+        <li><strong>⚡ Raast QR:</strong> Instant mobile wallet checkout via Raast.</li>
+      </ul>
+
+      <p>Additionally, this plugin features an isolated <strong>Admin Test Connection Tool</strong> that allows
+        merchants to verify API connectivity instantly without processing real orders.</p>
+    </section>
+
+    <section id="security">
+      <h1>Security Hardening & Critical Fixes</h1>
+      <p>This edition incorporates extensive architectural, performance, and security enhancements developed and
+        maintained by the author:</p>
+
+      <h3>1. Security & Vulnerability Resolutions</h3>
+      <ul class="feature-list">
+        <li><strong>SSRF & Order Spoofing Prevention:</strong> Strict integer sanitization, order ownership
+          verification, and secure internal API URL composition on the IPN listener endpoint.</li>
+        <li><strong>Admin Endpoint Hardening:</strong> Enforced `manage_woocommerce` capability checks and nonce
+          verification on the Test Connection AJAX endpoint.</li>
+        <li><strong>Timing-Safe Key Verification:</strong> Order validation on the Thank-You page now utilizes
+          `hash_equals()` to prevent spoofing.</li>
+      </ul>
+
+      <h3>2. OpenSSL 3.x & cURL Reliability</h3>
+      <p>Shared hosting environments (e.g., Hostinger, SiteGround) running PHP 8.1+ with OpenSSL 3.x often experience
+        `cURL error 56: SSL_read: unexpected eof` during bank handshakes. This plugin forces PHP Streams transport
+        fallback and incorporates automatic single-retry mechanisms to guarantee reliability.</p>
+
+      <h3>3. WooCommerce Modernization</h3>
+      <ul class="feature-list">
+        <li><strong>HPOS Compatibility:</strong> Deprecated `get_post_meta()` and `update_post_meta()` calls have been
+          replaced with HPOS-compliant WooCommerce CRUD methods (`$order->update_meta_data()`).</li>
+        <li><strong>Admin Resource Isolation:</strong> JavaScript and CSS assets are now loaded <em>only</em> on the
+          gateway settings page to preserve admin dashboard performance.</li>
+        <li><strong>Centralized Logging:</strong> All API communication errors, SSL fallbacks, and webhook responses are
+          logged directly to WooCommerce > Status > Logs.</li>
+      </ul>
+    </section>
+
+    <section id="installation">
+      <h1>Installation Guide</h1>
+      <p>To install the Alfa Payment Gateway WooCommerce Plugin, follow these steps:</p>
+      <ul class="feature-list">
+        <li>Login to your WordPress Admin dashboard.</li>
+        <li>Navigate to <strong>Plugins &raquo; Add New</strong>.</li>
+        <li>Click on the <strong>Upload Plugin</strong> button.</li>
+        <li>Select the provided <code>bank-alfalah.zip</code> file and click <strong>Install Now</strong>.</li>
+        <li>Once installed, click <strong>Activate Plugin</strong>.</li>
+      </ul>
+
+      <div class="image-container">
+        <img src="images/1.jpg" alt="Upload Plugin in WordPress" class="doc-screenshot" />
+        <small>Uploading the plugin via WordPress Admin</small>
+      </div>
+
+      <div class="image-container">
+        <img src="images/2.jpg" alt="Activate Plugin" class="doc-screenshot" />
+        <small>Activating the installed plugin</small>
+      </div>
+    </section>
+
+    <section id="configuration">
+      <h1>Merchant Configurations</h1>
+      <p>After activation, the plugin must be configured with your Bank Alfalah credentials. Navigate to
+        <strong>WooCommerce &raquo; Settings &raquo; Payments &raquo; Alfa Payment Gateway</strong> (Click Manage).
+      </p>
+
+      <div class="image-container">
+        <img src="images/3.jpg" alt="Navigate to WooCommerce Payments" class="doc-screenshot" />
+        <small>Locating the Gateway in WooCommerce Settings</small>
+      </div>
+
+      <p>On the configuration screen, you will need to input the following details provided by your Bank Alfalah
+        Merchant Relationship Manager:</p>
+
+      <ul class="feature-list">
+        <li><strong>Merchant ID</strong></li>
+        <li><strong>Store ID</strong></li>
+        <li><strong>Merchant Hash</strong></li>
+        <li><strong>Merchant Username & Password</strong></li>
+        <li><strong>Key 1 & Key 2 (AES Encryption Keys)</strong></li>
+      </ul>
+
+      <div class="image-container">
+        <img src="images/4.jpg" alt="Input API Credentials" class="doc-screenshot" />
+        <small>Entering your Merchant Credentials</small>
+      </div>
+
+      <div class="alert alert-warning">
+        <strong>Important: IPN Listener Configuration</strong><br>
+        Copy the <em>IPN Listener URL</em> displayed at the top of the settings page (e.g.,
+        <code>https://yourdomain.com/wc-api/bank_alfalah_gateway</code>) and provide it to Bank Alfalah so they can
+        configure automated background status updates.
+      </div>
+
+      <h3>Testing Your Connection</h3>
+      <p>At the bottom of the settings page, click the <strong>Click Here For Test Connection</strong> button. The
+        plugin will attempt a secure handshake with the bank.</p>
+
+      <div class="image-container">
+        <img src="images/5.jpg" alt="Test Connection Success" class="doc-screenshot" />
+        <small>A successful API Handshake test</small>
+      </div>
+    </section>
+
+    <section id="checkout">
+      <h1>Checkout Experience</h1>
+      <p>Once configured and saved, the Alfa Payment Gateway will appear dynamically on your checkout page. The plugin
+        intelligently manages mutually exclusive radio buttons to ensure smooth integration alongside other payment
+        gateways like Cash on Delivery.</p>
+
+      <div class="image-container">
+        <img src="images/6.jpg" alt="Customer Checkout Experience" class="doc-screenshot" />
+        <small>Customer view at checkout</small>
+      </div>
+
+      <p>Upon clicking "Place Order", the customer is securely redirected to Bank Alfalah's encrypted portal to complete
+        their transaction.</p>
+    </section>
+
+    <section id="data-flow">
+      <h1>Architecture & Data Flow</h1>
+      <p>The communication between your WooCommerce store and Bank Alfalah relies on military-grade AES-128-CBC
+        encryption and strictly structured API payloads.</p>
+
+      <ul class="feature-list">
+        <li><strong>Step 1 (Checkout):</strong> The customer selects a payment method and places the order.</li>
+        <li><strong>Step 2 (Handshake):</strong> WooCommerce securely POSTs an encrypted handshake request to Bank
+          Alfalah. The plugin natively retries this request if an OpenSSL TLS teardown occurs.</li>
+        <li><strong>Step 3 (SSO Redirect):</strong> The bank returns a secure AuthToken, and the customer is redirected
+          to the bank's portal.</li>
+        <li><strong>Step 4 (IPN / Return):</strong> After successful payment, the customer is redirected to your
+          Thank-You page, and the Bank asynchronously fires a secure webhook (IPN) to update the order status to
+          "Processing".</li>
+      </ul>
+    </section>
+
+    <section id="developer">
+      <h1>👤 Author & Developer</h1>
+      <p>This modernized, security-hardened edition of the Alfa Payment Gateway is developed and maintained by Amanullah
+        Khan.</p>
+
+      <div class="author-card">
+        <div class="author-avatar">
+          👨‍💻
+        </div>
+        <div class="author-info">
+          <h3>Amanullah Khan</h3>
+          <p><strong>Developer & Maintainer:</strong> Web Development, Front-End Engineering & Social Media Management
+          </p>
+          <p><strong>Location:</strong> Pakistan 🇵🇰</p>
+
+          <div class="author-links">
+            <a href="https://github.com/amanullahykhan" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <a href="https://huggingface.co/ak32khan" target="_blank" rel="noopener noreferrer">HuggingFace Profile</a>
+            <a href="https://www.linkedin.com/in/amanullahykhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://amanullahykhan.gumroad.com/l/niekk" class="support-link" target="_blank"
+              rel="noopener noreferrer">☕ Buy Me a Coffee</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Alfa Payment Gateway &copy; 2024 All Rights Reserved. Hardened Edition maintained by Amanullah Khan.</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+
+</html>

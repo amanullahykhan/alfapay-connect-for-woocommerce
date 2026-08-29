@@ -1,0 +1,104 @@
+.payment_method_bank_alfalah_gateway{
+    position: relative;
+}
+span.sandbox-error{
+    color: red;
+}
+span.handshake-success,
+span.handshake-error{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    display: none;
+}
+span.handshake-success{
+    color: green;
+}
+span.handshake-error{
+    color: red;
+}
+.alfalah-box{
+    width: 100%;
+    overflow: hidden;
+}
+.alfalah-box label{
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.alfalah-wallet,
+.alfalah-account,
+.alfalah-card,
+.BNPL,
+.card_on_delivery,
+.JazzCash,
+.RaastQr{
+    display: none;
+}
+#bank_alfalah_testing{
+    position: fixed;
+    top: 25%;
+    right: 0px;
+    display: block;
+    width: 16%;
+    box-sizing: border-box;
+    background-color: #FFF;
+    z-index: 999;
+    padding: 10px;
+}
+#bank_alfalah_testing_responce_wait,
+#bank_alfalah_testing_responce_success,
+#bank_alfalah_testing_responce_error{
+    display: none;
+    box-sizing: border-box;
+    margin-top: 5px;
+    width: 100%;
+    padding: 5px;
+    background-color: #FFF;
+}
+#bank_alfalah_testing_responce_wait{
+    border-left: 5px solid yellow;
+}
+#bank_alfalah_testing_responce_wait img{
+    position: relative;
+    top: 2px;
+}
+#bank_alfalah_testing_responce_success{
+    border-left: 5px solid green;
+}
+#bank_alfalah_testing_responce_error{
+    border-left: 5px solid red;
+}
+.view-msg{
+    display: block !important;
+}
+.woocommerce .bank-alfalah-redio img {
+    display: inline-block;
+    height: 20px;
+}
+.payment_method_bank_alfalah_gateway{
+    display: block !important;
+}
+.payment_method_bank_alfalah_gateway::before,
+#payment_method_bank_alfalah_gateway,
+li.payment_method_bank_alfalah_gateway > label{
+    display: none !important;/**/
+}
+.wc_payment_method .payment_box{
+    background: transparent !important;
+    padding-left: 0px !important;
+}
+input[type="radio"]#alfalah-card,
+input[type="radio"]#alfalah-wallet,
+input[type="radio"]#alfalah-account,
+input[type="radio"]#BNPL,
+input[type="radio"]#card_on_delivery,
+input[type="radio"]#JazzCash,
+input[type="radio"]#RaastQr{
+    height: 20px !important;
+    width: 20px;
+    margin-left: 0px;
+}
