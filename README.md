@@ -1,3 +1,5 @@
+<center><img src="eis_gateway_alpha.png"></center>
+
 # AlfaPay Connect for WooCommerce (Fixed & Hardened Edition)
 
 [![WordPress](https://img.shields.io/badge/WordPress-5.8%2B%20to%206.x-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org)
