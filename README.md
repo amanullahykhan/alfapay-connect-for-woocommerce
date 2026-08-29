@@ -1,4 +1,7 @@
-<center><img src="eis_gateway_alpha.png"></center>
+<p align="center">
+  <img src="eis_gateway_alpha.png">
+</p>
+
 
 # AlfaPay Connect for WooCommerce (Fixed & Hardened Edition)
 
